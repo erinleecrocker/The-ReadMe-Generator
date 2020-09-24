@@ -41,6 +41,27 @@ inquirer
         name: "License",
         message: "Choose your licence:",
         choices: ["MIT License", "Apache License", "GPL License"]
-    }
-    ]);
+    },
+    {
+        type:"input",
+        name: "Username",
+        message: "Enter your github username: ",
+    },
+    {
+        type:"input",
+        name: "email",
+        message: "Enter your email address: "
+    }  
+    ]
 
+    .then(answers => {
+        // Use user feedback for... whatever!!
+      })
+      .catch(error => {
+        if(error.isTtyError) {
+          // Prompt couldn't be rendered in the current environment
+        } else {
+          // Something else when wrong
+        }
+    })
+  );
