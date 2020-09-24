@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/erinleecrocker/The-ReadMe-Generator#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "inquirer": "^7.3.3",
     "util": "^0.12.3"
   }
