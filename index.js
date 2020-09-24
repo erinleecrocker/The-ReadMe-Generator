@@ -1,6 +1,5 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const axios = require("axios");
 const util = require("util");
 
 inquirer
@@ -51,17 +50,27 @@ inquirer
         type:"input",
         name: "email",
         message: "Enter your email address: "
-    }  
-    ]
+    }
+    ])
 
-    .then(answers => {
-        // Use user feedback for... whatever!!
-      })
-      .catch(error => {
-        if(error.isTtyError) {
-          // Prompt couldn't be rendered in the current environment
-        } else {
-          // Something else when wrong
-        }
-    })
-  );
+    .then(data => {
+        
+        fs.writeFile("GoodREADME.md", generateMD(data), function(err){
+            if (err) throw err;
+            else console.log("sucess!!");
+        });
+         
+        
+    }).catch((err) => {
+        if (err) throw err;
+    });
+      
+
+  
+
+    function generateMD(data){
+        return `#${data.Title} \n
+        Description: ${data.Description} \n
+        Installation: ${data.Installation}`
+    };
+    
