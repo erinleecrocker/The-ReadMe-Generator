@@ -69,8 +69,8 @@ inquirer
   
 
     function generateMD(data){
-        return `#${data.Title} \n
-        Description: ${data.Description} \n
+        return `#${data.Title}# 
+        Description: ${data.Description} 
         Installation: ${data.Installation}`
     };
     
