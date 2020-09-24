@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/erinleecrocker/The-ReadMe-Generator/issues"
   },
-  "homepage": "https://github.com/erinleecrocker/The-ReadMe-Generator#readme"
+  "homepage": "https://github.com/erinleecrocker/The-ReadMe-Generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "util": "^0.12.3"
+  }
 }
