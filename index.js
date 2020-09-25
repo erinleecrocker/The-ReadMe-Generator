@@ -38,7 +38,7 @@ inquirer
         type: "list",
         name: "License",
         message: "Choose your licence:",
-        choices: ["MIT License", "Apache License", "GPL License"]
+        choices: ["MIT", "Apache", "GPL"]
     },
     {
         type:"input",
@@ -86,7 +86,7 @@ ${data.Description}
 <br /> 
 <br /> 
         
-## Instalation Instructions :
+## Installation Instructions :
 ---
 ${data.Installation}    
 <br /> 
@@ -99,7 +99,7 @@ ${data.Usage}
         
 ### License :
 ---
-${data.License} 
+${data.License} License
         
 <br /> 
     
