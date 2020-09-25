@@ -1,6 +1,5 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const util = require("util");
 
 inquirer
   .prompt([
@@ -27,7 +26,7 @@ inquirer
     },
     {
         type:"input",
-        name: "Contributing",
+        name: "Contribution",
         message: "What are your contribution guidelines?"
     },
     {
@@ -51,11 +50,9 @@ inquirer
         name: "email",
         message: "Enter your email address: "
     }
-    ])
+    ]).then(data => {
 
-    .then(data => {
-        
-        fs.writeFile("GoodREADME.md", generateMD(data), function(err){
+        fs.writeFile("GoodREADME.md", generateMD(data), 'utf8',  function(err){
             if (err) throw err;
             else console.log("sucess!!");
         });
@@ -64,13 +61,60 @@ inquirer
     }).catch((err) => {
         if (err) throw err;
     });
-      
 
-  
-
-    function generateMD(data){
-        return `#${data.Title}# 
-        Description: ${data.Description} 
-        Installation: ${data.Installation}`
-    };
+    function generateMD(data) {
+        return `# ${data.Title}
+![<ALT>](https://img.shields.io/badge/Licence-${data.License}-<COLOR>)
+<br /> 
+        
+## Description :
     
+${data.Description}
+        
+<br /> 
+<br /> 
+        
+## Table of Contents :
+---
+- [**Installation Instructrions**](#Installation-Instructions)
+- [**Usage Information**](#Usage-Information)
+- [**License**](#Licence)
+- [**Contribution Guidelines**](#Contribution-Guidelines)
+- [**Test Instructions**](#Test-Instructions)
+- [**Questions**](#Questions)
+        
+<br /> 
+<br /> 
+        
+## Instalation Instructions :
+---
+${data.Installation}    
+<br /> 
+        
+### Usage Information :
+---
+${data.Usage}
+        
+<br /> 
+        
+### License :
+---
+${data.License} 
+        
+<br /> 
+    
+### Contribution Guidelines :
+---
+${data.Contribution}    
+<br /> 
+        
+### Test Instructions :
+---
+${data.Test}    
+<br /> 
+        
+### Questions :
+---
+* email : ${data.email} 
+* GitHub : http://www.github.com/${data.Username}`
+};
